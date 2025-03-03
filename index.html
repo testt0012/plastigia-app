@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
+    <title>Σύνδεση - Plastigia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #FFFFFF;
+            color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+        }
+        .header {
+            position: relative;
+            padding: 15px;
+            color: #FFFFFF;
+        }
+        .login-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+            z-index: 1;
+        }
+        .logo {
+            max-width: 300px; /* Αυξημένο μέγεθος λογοτύπου */
+            margin: 0 auto 20px; /* Κεντράρισμα με περιθώριο κάτω */
+            display: block; /* Βεβαιώνει ότι τοποθετείται σωστά */
+        }
+        h1 {
+            color: #FF0000;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 80%;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 18px;
+            border: 2px solid #FF0000;
+            border-radius: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        button {
+            padding: 15px 30px;
+            background-color: #FF0000;
+            color: #FFFFFF;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 20px;
+            width: 80%;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #CC0000;
+        }
+        #message {
+            margin-top: 15px;
+            color: #FF0000;
+            font-size: 18px;
+        }
+        .menu-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 15px 30px;
+            background-color: #FF0000;
+            color: #FFFFFF;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 20px;
+            display: none; /* Κρυφό στο index, καθώς δεν χρειάζεται μενού εδώ */
+        }
+        .menu-btn:hover {
+            background-color: #CC0000;
+        }
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #FF0000;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 1;
+        }
+        .sidebar a {
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #FFFFFF;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #CC0000;
+        }
+        .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            padding: 10px;
+            background: none;
+            border: none;
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+        @media (max-width: 600px) {
+            .login-container {
+                padding: 20px;
+            }
+            .logo {
+                max-width: 250px; /* Μικρότερο μέγεθος σε κινητό */
+            }
+            input {
+                padding: 12px;
+                font-size: 16px;
+            }
+            button {
+                padding: 12px 25px;
+                font-size: 18px;
+            }
+            #message {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <!-- Το λογότυπο από το header αφαιρείται -->
+    </div>
+    <div class="login-container">
+        <img src="plastigia-logo.jpg" alt="Plastigia Logo" class="logo">
+        <h1>Σύνδεση - Plastigia</h1>
+        <input type="text" id="username" placeholder="Όνομα χρήστη">
+        <input type="password" id="password" placeholder="Κωδικός">
+        <button onclick="login()">Σύνδεση</button>
+        <div id="message"></div>
+    </div>
+    <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="closeSidebar()">×</button>
+    </div>
+    <button class="menu-btn" onclick="openSidebar()">☰</button>
+    <script>
+        function login() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            let message = document.getElementById("message");
+
+            const users = {
+                admin1: { password: "admin123", role: "admin" },
+                user1: { password: "user123", role: "user" }
+            };
+
+            if (users[username] && users[username].password === password) {
+                message.innerHTML = "Επιτυχής σύνδεση!";
+                sessionStorage.setItem('role', users[username].role);
+                sessionStorage.setItem('username', username);
+                setTimeout(() => {
+                    window.location.href = "welcome.html";
+                }, 1000);
+            } else {
+                message.innerHTML = "Λάθος όνομα χρήστη ή κωδικός!";
+            }
+        }
+
+        function logout() {
+            sessionStorage.clear();
+            window.location.href = "index.html";
+        }
+
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+        }
+    </script>
+</body>
+</html>

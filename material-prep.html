@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
+    <title>Φόρμα Προετοιμασίας Υλικού - Plastigia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+        .header {
+            position: relative;
+            background-color: #FF0000;
+            padding: 20px;
+            color: #FFFFFF;
+        }
+        .logo {
+            max-width: 250px;
+            margin: 20px auto;
+        }
+        .menu-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 15px 30px;
+            background-color: #FF0000;
+            color: #FFFFFF;
+            border: none;
+            cursor: pointer;
+            border-radius: 15px;
+            font-size: 22px;
+        }
+        .menu-btn:hover {
+            background-color: #CC0000;
+        }
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 15px 30px;
+            background-color: #FF0000;
+            color: #FFFFFF;
+            border: none;
+            cursor: pointer;
+            border-radius: 15px;
+            font-size: 22px;
+        }
+        .back-btn:hover {
+            background-color: #CC0000;
+        }
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #FF0000;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 1;
+        }
+        .sidebar a {
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #FFFFFF;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #CC0000;
+        }
+        .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            padding: 10px;
+            background: none;
+            border: none;
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #FF0000;
+            border-radius: 15px;
+        }
+        .section {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        h2 {
+            color: #FF0000;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .admin-info span {
+            font-weight: bold;
+            color: #FF0000;
+            font-size: 18px;
+        }
+        .input-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        label {
+            display: inline-block;
+            width: 40%;
+            margin-right: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        input {
+            width: 50%;
+            padding: 12px;
+            font-size: 18px;
+            border: 2px solid #FF0000;
+            border-radius: 10px;
+            text-align: center;
+        }
+        input[readonly] {
+            background-color: #f0f0f0;
+            cursor: not-allowed;
+        }
+        .table-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 2px solid #FF0000;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+        th:nth-child(3), td:nth-child(3) {
+            width: 30px;
+        }
+        .remaining {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #FF0000;
+            font-size: 18px;
+            text-align: center;
+        }
+        .delete-btn {
+            width: 20px;
+            height: 20px;
+            background: url('delete.jpg') no-repeat center;
+            background-size: contain;
+            border: none;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+        .delete-btn:hover {
+            opacity: 0.7;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+            label {
+                font-size: 16px;
+            }
+            input {
+                width: 60%;
+                padding: 10px;
+                font-size: 16px;
+            }
+            .table-container table {
+                width: 90%;
+            }
+            th, td {
+                padding: 10px;
+            }
+            .remaining {
+                font-size: 16px;
+            }
+            .menu-btn, .back-btn {
+                padding: 12px 25px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <button class="back-btn" onclick="goBack()">Πίσω</button>
+        <img src="logo.png" alt="Plastigia Logo" class="logo">
+        <button class="menu-btn" onclick="openSidebar()">☰</button>
+    </div>
+    <div class="container">
+        <h2>Φόρμα Προετοιμασίας Υλικού</h2>
+        <div class="section">
+            <div class="input-row"><label>Πελάτης:</label><input type="text" id="client" readonly></div>
+            <div class="input-row"><label>Καλούπι:</label><input type="text" id="mold" readonly></div>
+            <div class="input-row"><label>Ημερομηνία Παράδοσης:</label><input type="date" id="deliveryDate" readonly></div>
+            <div class="input-row"><label>Σύνολο Υλικού:</label><input type="number" id="totalMaterial" readonly></div>
+            <div class="input-row"><label>Υλικό:</label><input type="text" id="material" readonly></div>
+        </div>
+        <div class="table-container" id="prepTableContainer">
+            <table id="prepTable">
+                <thead>
+                    <tr>
+                        <th>Κιλά Υλικού</th>
+                        <th>Ώρα</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="prepTableBody"></tbody>
+            </table>
+            <div class="input-row" id="newEntryRow">
+                <label>Κιλά Υλικού:</label><input type="number" id="newKilos" placeholder="Πληκτρολόγησε κιλά" step="0.01">
+                <label>Ώρα:</label><input type="time" id="newTime" placeholder="π.χ. 14:30">
+                <button onclick="addPrepEntry()">Προσθήκη</button>
+            </div>
+            <div class="remaining" id="remainingMaterial"></div>
+        </div>
+    </div>
+    <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="closeSidebar()">×</button>
+        <a href="welcome.html">Μηχανές</a>
+        <a href="#">Παραγγελίες Φασόν</a>
+        <a href="#">Παραγγελίες Plastigia</a>
+        <a href="#">Inventory</a>
+        <div id="adminOptions" style="display: none;">
+            <a href="#">Καλούπια</a>
+            <a href="#">Παραγγελίες Υλικών</a>
+        </div>
+        <a href="#" onclick="logout()">Αποσύνδεση</a>
+    </div>
+    <script>
+        // Έλεγχος ρόλου
+        const role = sessionStorage.getItem('role');
+        if (!role || role !== 'user') {
+            alert('Πρόσβαση μόνο για χρήστες!');
+            window.location.href = "index.html";
+        }
+
+        // Λήψη παραμέτρου από το URL (όνομα μηχανής)
+        const urlParams = new URLSearchParams(window.location.search);
+        const machineName = urlParams.get('name');
+
+        // Φόρτωση δεδομένων από το localStorage
+        const data = JSON.parse(localStorage.getItem('machineData_' + machineName)) || {};
+        document.getElementById('client').value = data.client || '';
+        document.getElementById('mold').value = data.mold || '';
+        document.getElementById('deliveryDate').value = data.deliveryDate || '';
+        document.getElementById('totalMaterial').value = data.totalMaterial || '';
+        document.getElementById('material').value = data.material || '';
+
+        // Πίνακας προετοιμασίας υλικού
+        let prepData = JSON.parse(localStorage.getItem('prepData_' + machineName)) || [];
+        let totalPrepared = prepData.reduce((sum, row) => sum + (parseFloat(row.kilos) || 0), 0);
+        let remaining = (parseFloat(data.totalMaterial) || 0) - totalPrepared;
+
+        function updateTable() {
+            const tbody = document.getElementById('prepTableBody');
+            tbody.innerHTML = '';
+            prepData.forEach((row, index) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${row.kilos}</td>
+                    <td>${row.time}</td>
+                    <td><button class="delete-btn" onclick="deletePrepEntry(${index})"></button></td>
+                `;
+                tbody.appendChild(tr);
+            });
+            const remainingDiv = document.getElementById('remainingMaterial');
+            if (remaining === 0) {
+                remainingDiv.textContent = 'Όλο το υλικό έχει ετοιμαστεί';
+            } else if (remaining < 0) {
+                remainingDiv.textContent = 'Το κόστος του εξτρά υλικού θα αφαιρεθεί από το μισθό σου!';
+            } else {
+                remainingDiv.textContent = `Υπόλοιπο υλικό: ${remaining.toFixed(2)} κιλά`;
+            }
+        }
+
+        function addPrepEntry() {
+            const newKilos = document.getElementById('newKilos').value;
+            const newTime = document.getElementById('newTime').value;
+            if (newKilos && newTime) {
+                prepData.push({ kilos: newKilos, time: newTime });
+                localStorage.setItem('prepData_' + machineName, JSON.stringify(prepData));
+                totalPrepared = prepData.reduce((sum, row) => sum + (parseFloat(row.kilos) || 0), 0);
+                remaining = (parseFloat(data.totalMaterial) || 0) - totalPrepared;
+                updateTable();
+                document.getElementById('newKilos').value = '';
+                document.getElementById('newTime').value = '';
+            } else {
+                alert('Παρακαλώ συμπληρώστε και τα δύο πεδία!');
+            }
+        }
+
+        function deletePrepEntry(index) {
+            if (prepData.length > 0) {
+                prepData.splice(index, 1); // Διαγραφή της επιλεγμένης καταχώρησης
+                localStorage.setItem('prepData_' + machineName, JSON.stringify(prepData));
+                totalPrepared = prepData.reduce((sum, row) => sum + (parseFloat(row.kilos) || 0), 0);
+                remaining = (parseFloat(data.totalMaterial) || 0) - totalPrepared;
+                updateTable();
+            }
+        }
+
+        // Αρχική ενημέρωση πίνακα
+        updateTable();
+
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+        }
+
+        function goBack() {
+            window.location.href = "welcome.html";
+        }
+
+        function logout() {
+            sessionStorage.clear();
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
+    <title>Καλωσήρθες - Plastigia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+        .header {
+            position: relative;
+            background-color: #FF0000;
+            padding: 10px; /* Μειωμένο padding για μικρότερο κόκκινο πλαίσιο */
+            color: #FFFFFF;
+        }
+        .logo {
+            max-width: 300px; /* Αυξημένο μέγεθος λογοτύπου */
+            margin: 10px auto; /* Περιθώριο για κεντράρισμα */
+        }
+        .menu-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 15px 30px;
+            background-color: #FF0000;
+            color: #FFFFFF;
+            border: none;
+            cursor: pointer;
+            border-radius: 15px;
+            font-size: 22px;
+        }
+        .menu-btn:hover {
+            background-color: #CC0000;
+        }
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #FF0000;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 1;
+        }
+        .sidebar a {
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #FFFFFF;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #CC0000;
+        }
+        .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            padding: 10px;
+            background: none;
+            border: none;
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+        .welcome-message {
+            margin: 40px 0;
+            font-size: 26px;
+        }
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .machine-button {
+            padding: 30px;
+            background-size: 100% 100%; /* Διασφαλίζει ότι οι φωτογραφίες είναι πλήρως ορατές */
+            background-position: center;
+            background-repeat: no-repeat;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: #FFFFFF;
+            text-align: center;
+            border-radius: 15px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .machine-button .text-background {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-shadow: 1px 1px 3px #000000;
+        }
+        .machine-button:hover {
+            opacity: 0.9;
+        }
+        /* Καθορισμός φωτογραφιών ανά μηχανή */
+        #victor120 { background-image: url('victor.png'); }
+        #victor90 { background-image: url('victor.png'); }
+        #victor180 { background-image: url('victor.png'); }
+        #haitian90 { background-image: url('haitian.png'); }
+        #haitian60 { background-image: url('haitian.png'); }
+        #haitian120 { background-image: url('haitian.png'); }
+        #borsche60 { background-image: url('borsche.jpg'); }
+        #kraussmaffei { background-image: url('krauss.jpg'); }
+        #haitian200 { background-image: url('haitian.png'); }
+        @media (max-width: 600px) {
+            .button-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .header {
+                padding: 5px; /* Περαιτέρω μείωση σε κινητό */
+            }
+            .logo {
+                max-width: 250px; /* Μικρότερο μέγεθος σε κινητό */
+            }
+            .machine-button {
+                padding: 20px;
+                height: 120px;
+                font-size: 20px;
+            }
+            .machine-button .text-background {
+                padding: 10px 20px;
+            }
+            .menu-btn {
+                padding: 12px 25px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="logo.png" alt="Plastigia Logo" class="logo">
+        <button class="menu-btn" onclick="openSidebar()">☰</button>
+    </div>
+    <div class="welcome-message">
+        <h1>Καλωσήρθες στην Plastigia!</h1>
+        <p>Είσαι συνδεδεμένος/η ως <span id="roleDisplay"></span>.</p>
+    </div>
+    <div class="button-grid">
+        <button id="victor120" class="machine-button" onclick="openMachineInfo('Victor 120')"><span class="text-background">Victor 120</span></button>
+        <button id="victor90" class="machine-button" onclick="openMachineInfo('Victor 90')"><span class="text-background">Victor 90</span></button>
+        <button id="haitian90" class="machine-button" onclick="openMachineInfo('Haitian 90')"><span class="text-background">Haitian 90</span></button>
+        <button id="haitian60" class="machine-button" onclick="openMachineInfo('Haitian 60')"><span class="text-background">Haitian 60</span></button>
+        <button id="borsche60" class="machine-button" onclick="openMachineInfo('Borsche 60')"><span class="text-background">Borsche 60</span></button>
+        <button id="haitian120" class="machine-button" onclick="openMachineInfo('Haitian 120')"><span class="text-background">Haitian 120</span></button>
+        <button id="kraussmaffei" class="machine-button" onclick="openMachineInfo('Krauss-Maffei')"><span class="text-background">Krauss-Maffei</span></button>
+        <button id="victor180" class="machine-button" onclick="openMachineInfo('Victor 180')"><span class="text-background">Victor 180</span></button>
+        <button id="haitian200" class="machine-button" onclick="openMachineInfo('Haitian 200')"><span class="text-background">Haitian 200</span></button>
+    </div>
+    <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="closeSidebar()">×</button>
+        <a href="welcome.html">Μηχανές</a>
+        <a href="#">Παραγγελίες Φασόν</a>
+        <a href="#">Παραγγελίες Plastigia</a>
+        <a href="#">Inventory</a>
+        <div id="adminOptions" style="display: none;">
+            <a href="#">Καλούπια</a>
+            <a href="#">Παραγγελίες Υλικών</a>
+        </div>
+        <a href="#" onclick="logout()">Αποσύνδεση</a>
+    </div>
+    <script>
+        // Έλεγχος ρόλου
+        const role = sessionStorage.getItem('role');
+        const username = sessionStorage.getItem('username');
+        if (!role || !username) {
+            alert('Πρέπει να συνδεθείτε!');
+            window.location.href = "index.html";
+        }
+        document.getElementById('roleDisplay').textContent = role === 'admin' ? 'Admin' : 'Υπάλληλος';
+
+        // Εμφάνιση επιλογών admin αν ο ρόλος είναι admin
+        if (role === 'admin') {
+            document.getElementById('adminOptions').style.display = 'block';
+        }
+
+        function openMachineInfo(machineName) {
+            window.location.href = `machine-info.html?name=${encodeURIComponent(machineName)}`;
+        }
+
+        function openSidebar() {
+            document.getElementById("sidebar").style.width = "250px";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.width = "0";
+        }
+
+        function logout() {
+            sessionStorage.clear();
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

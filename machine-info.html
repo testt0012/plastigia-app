@@ -15,43 +15,58 @@
         }
         .header {
             position: relative;
-            background-color: #FF0000;
-            padding: 20px;
+            background-color: #ed1c24; /* Νέο κόκκινο χρώμα */
+            padding: 10px; /* Μειωμένο padding για μικρότερο πλάτος */
             color: #FFFFFF;
+            width: 90%; /* Περιορισμός πλάτους */
+            margin: 0 auto; /* Κεντράρισμα */
+            min-height: 40px; /* Ελάχιστο ύψος για τη μπάρα */
         }
         .logo {
-            max-width: 250px;
-            margin: 20px auto;
+            max-width: 300px; /* Αυξημένο μέγεθος λογοτύπου */
+            margin: 10px auto; /* Περιθώριο για κεντράρισμα */
         }
         .menu-btn {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 15px 30px;
-            background-color: #FF0000;
+            top: 0;
+            right: 0;
+            padding: 0; /* Καθαρό padding για πλήρες ύψος */
+            background-color: #ed1c24; /* Νέο κόκκινο χρώμα */
             color: #FFFFFF;
             border: none;
             cursor: pointer;
-            border-radius: 15px;
-            font-size: 22px;
+            border-radius: 0 10px 10px 0; /* Ακριαία στρογγυλά μόνο στα δεξιά */
+            font-size: 20px;
+            width: 50px; /* Σταθερό πλάτος για τη γωνία */
+            height: 100%; /* Πλήρες ύψος της μπάρας */
+            box-sizing: border-box; /* Περιλαμβάνει padding στο ύψος/πλάτος */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .menu-btn:hover {
-            background-color: #CC0000;
+            background-color: #c91820; /* Σκιά χρώματος για hover */
         }
         .back-btn {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            padding: 15px 30px;
-            background-color: #FF0000;
+            top: 0;
+            left: 0;
+            padding: 0; /* Καθαρό padding για πλήρες ύψος */
+            background-color: #ed1c24; /* Νέο κόκκινο χρώμα */
             color: #FFFFFF;
             border: none;
             cursor: pointer;
-            border-radius: 15px;
-            font-size: 22px;
+            border-radius: 10px 0 0 10px; /* Ακριαία στρογγυλά μόνο στα αριστερά */
+            font-size: 20px;
+            width: 50px; /* Σταθερό πλάτος για τη γωνία */
+            height: 100%; /* Πλήρες ύψος της μπάρας */
+            box-sizing: border-box; /* Περιλαμβάνει padding στο ύψος/πλάτος */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .back-btn:hover {
-            background-color: #CC0000;
+            background-color: #c91820; /* Σκιά χρώματος για hover */
         }
         .sidebar {
             height: 100%;
@@ -59,7 +74,7 @@
             position: fixed;
             top: 0;
             right: 0;
-            background-color: #FF0000;
+            background-color: #ed1c24; /* Νέο κόκκινο χρώμα */
             overflow-x: hidden;
             transition: 0.5s;
             padding-top: 60px;
@@ -74,7 +89,7 @@
             transition: 0.3s;
         }
         .sidebar a:hover {
-            background-color: #CC0000;
+            background-color: #c91820; /* Σκιά χρώματος για hover */
         }
         .sidebar .close-btn {
             position: absolute;
@@ -91,7 +106,7 @@
             max-width: 90%;
             margin: 20px auto;
             padding: 20px;
-            border: 2px solid #FF0000;
+            border: 2px solid #ed1c24; /* Νέο κόκκινο χρώμα */
             border-radius: 15px;
         }
         .section {
@@ -99,13 +114,13 @@
             text-align: ${role === 'user' ? 'left' : 'right'};
         }
         h2 {
-            color: #FF0000;
+            color: #ed1c24; /* Νέο κόκκινο χρώμα */
             font-size: 24px;
             margin-bottom: 15px;
         }
         .admin-info span {
             font-weight: bold;
-            color: #FF0000;
+            color: #ed1c24; /* Νέο κόκκινο χρώμα */
             font-size: 18px;
         }
         .input-row {
@@ -127,7 +142,7 @@
             width: 25%;
             padding: 12px;
             font-size: 18px;
-            border: 2px solid #FF0000;
+            border: 2px solid #ed1c24; /* Νέο κόκκινο χρώμα */
             border-radius: 10px;
             display: inline-block;
             vertical-align: middle;
@@ -141,7 +156,7 @@
         }
         button {
             padding: 15px 30px;
-            background-color: #FF0000;
+            background-color: #ed1c24; /* Νέο κόκκινο χρώμα */
             color: #FFFFFF;
             border: none;
             cursor: pointer;
@@ -150,14 +165,14 @@
             margin-top: 15px;
         }
         button:hover {
-            background-color: #CC0000;
+            background-color: #c91820; /* Σκιά χρώματος για hover */
         }
         .hidden {
             display: none;
         }
         .prep-material-btn {
             padding: 10px 20px;
-            background-color: #FF0000;
+            background-color: #ed1c24; /* Νέο κόκκινο χρώμα */
             color: #FFFFFF;
             border: none;
             cursor: pointer;
@@ -166,14 +181,24 @@
             margin-top: 15px;
         }
         .prep-material-btn:hover {
-            background-color: #CC0000;
+            background-color: #c91820; /* Σκιά χρώματος για hover */
         }
         @media (max-width: 600px) {
             .container {
                 padding: 15px;
             }
-            h2 {
-                font-size: 20px;
+            .header {
+                padding: 5px; /* Περαιτέρω μείωση σε κινητό */
+                width: 95%; /* Λίγο μεγαλύτερο πλάτος σε κινητό */
+                min-height: 35px; /* Προσαρμογή ελάχιστου ύψους σε κινητό */
+            }
+            .logo {
+                max-width: 250px; /* Μικρότερο μέγεθος σε κινητό */
+            }
+            .menu-btn, .back-btn {
+                padding: 0;
+                font-size: 18px;
+                width: 45px; /* Λίγο μικρότερο πλάτος σε κινητό */
             }
             label {
                 font-size: 16px;
@@ -232,7 +257,7 @@
         <h2>Στοιχεία Συσκευασίας</h2>
         <div class="section">
             <div class="input-row"><label>τμχ/σακουλάκι:</label><input type="number" id="itemsPerBag" placeholder="Πληκτρολόγησε τεμάχια" ${role === 'user' ? 'readonly' : ''}></div>
-            <div class="input-row"><label>Σακουλάκι:</label><input type="number" id="bags" placeholder="Πληκτρολόγησε αριθμό σακουλιών" ${role === 'user' ? 'readonly' : ''}></div>
+            <div class="input-row"><label>Σακουλάκι:</label><input type="number" id="bags" placeholder="Πληkτρολόγησε αριθμό σακουλιών" ${role === 'user' ? 'readonly' : ''}></div>
         </div>
         <div ${role === 'user' ? '' : 'style="display: none;"'}>
             <button class="prep-material-btn" onclick="openMaterialPrep()">Φόρμα Προετοιμασίας Υλικού</button>
@@ -274,35 +299,35 @@
                 <h2>Πληροφορίες Μηχανής</h2>
                 <div class="section">
                     <div class="input-row"><label>Πελάτης:</label><p><span class="admin-info">${data.client || 'Δεν ορίστηκε'}</span></p></div>
-                    <div class="input-row"><label>Καλούπι:</label><p><span class="admin-info">${data.mold || 'Δεν ορίστηκε'}</span></p></div>
+                    <div class="input-row"><label>Καλούπι:</label><p><span class="admin-info">${data.mold || 'Δεν oρίστηκε'}</span></p></div>
                     <div class="input-row"><label>Ημερομηνία Παράδοσης:</label><p><span class="admin-info">${data.deliveryDate || 'Δεν ορίστηκε'}</span></p></div>
                 </div>
                 <h2>Στοιχεία Καλουπιού</h2>
                 <div class="section">
-                    <div class="input-row"><label>Δευτ/Πάτημα:</label><p><span class="admin-info">${data.cyclesPerShot || 'Δεν ορίστηκε'}</span></p></div>
-                    <div class="input-row"><label>gr/Πάτημα:</label><p><span class="admin-info">${data.gramsPerShot || 'Δεν ορίστηκε'}</span></p></div>
-                    <div class="input-row"><label>gr/αντικειμένου:</label><p><span class="admin-info">${data.gramsPerItem || 'Δεν ορίστηκε'}</span></p></div>
-                    <div class="input-row"><label>τμχ/πάτημα:</label><p><span class="admin-info">${data.itemsPerShot || 'Δεν ορίστηκε'}</span></p></div>
-                    <div class="input-row"><label>Βουλωμένες Κοιλότητες:</label><p><span class="admin-info">${data.blockedCavities || 'Δεν ορίστηκε'}</span></p></div>
-                    <div class="input-row"><label>Υλικό:</label><p><span class="admin-info">${data.material || 'Δεν ορίστηκε'}</span></p></div>
+                    <div class="input-row"><label>Δευτ/Πάτημα:</label><p><span class="admin-info">${data.cyclesPerShot || 'Δεν oρίστηκε'}</span></p></div>
+                    <div class="input-row"><label>gr/Πάτημα:</label><p><span class="admin-info">${data.gramsPerShot || 'Δεν oρίστηκε'}</span></p></div>
+                    <div class="input-row"><label>gr/αντικειμένου:</label><p><span class="admin-info">${data.gramsPerItem || 'Δεν oρίστηκε'}</span></p></div>
+                    <div class="input-row"><label>τμχ/πάτημα:</label><p><span class="admin-info">${data.itemsPerShot || 'Δεν oρίστηκε'}</span></p></div>
+                    <div class="input-row"><label>Βουλωμένες Κοιλότητες:</label><p><span class="admin-info">${data.blockedCavities || 'Δεν oρίστηκε'}</span></p></div>
+                    <div class="input-row"><label>Υλικό:</label><p><span class="admin-info">${data.material || 'Δεν oρίστηκε'}</span></p></div>
                     <div class="input-row"><label>Μηχανή:</label><p><span class="admin-info">${machineName || 'Άγνωστη Μηχανή'}</span></p></div>
                 </div>
                 <h2>Στοιχεία Παραγγελίας</h2>
                 <div class="section">
-                    <div class="input-row"><label>Τεμάχια:</label><p><span class="admin-info">${data.items || 'Δεν ορίστηκε'}</span></p></div>
-                    <div class="input-row"><label>Σύνολο Υλικού:</label><p><span class="admin-info">${data.totalMaterial || 'Δεν ορίστηκε'}</span></p></div>
-                    <div class="input-row"><label>Χρώμα:</label><p><span class="admin-info">${data.color || 'Δεν ορίστηκε'}</span></p></div>
-                    <div class="input-row"><label>Ώρες:</label><p><span class="admin-info">${data.hours || 'Δεν ορίστηκε'}</span></p></div>
+                    <div class="input-row"><label>Τεμάχια:</label><p><span class="admin-info">${data.items || 'Δεν oρίστηκε'}</span></p></div>
+                    <div class="input-row"><label>Σύνολο Υλικού:</label><p><span class="admin-info">${data.totalMaterial || 'Δεν oρίστηκε'}</span></p></div>
+                    <div class="input-row"><label>Χρώμα:</label><p><span class="admin-info">${data.color || 'Δεν oρίστηκε'}</span></p></div>
+                    <div class="input-row"><label>Ώρες:</label><p><span class="admin-info">${data.hours || 'Δεν oρίστηκε'}</span></p></div>
                 </div>
                 <h2>Στοιχεία Παράδοσης</h2>
                 <div class="section">
-                    <div class="input-row"><label>Ώρα Έναρξης:</label><p><span class="admin-info">${data.startTime || 'Δεν ορίστηκε'}</span></p></div>
-                    <div class="input-row"><label>Ενδεικτική Ώρα Λήξης:</label><p><span class="admin-info">${data.estimatedEndTime || 'Δεν ορίστηκε'}</span></p></div>
+                    <div class="input-row"><label>Ώρα Έναρξης:</label><p><span class="admin-info">${data.startTime || 'Δεν oρίστηκε'}</span></p></div>
+                    <div class="input-row"><label>Ενδεικτική Ώρα Λήξης:</label><p><span class="admin-info">${data.estimatedEndTime || 'Δεν oρίστηκε'}</span></p></div>
                 </div>
                 <h2>Στοιχεία Συσκευασίας</h2>
                 <div class="section">
-                    <div class="input-row"><label>τμχ/σακουλάκι:</label><p><span class="admin-info">${data.itemsPerBag || 'Δεν ορίστηκε'}</span></p></div>
-                    <div class="input-row"><label>Σακουλάκι:</label><p><span class="admin-info">${data.bags || 'Δεν ορίστηκε'}</span></p></div>
+                    <div class="input-row"><label>τμχ/σακουλάκι:</label><p><span class="admin-info">${data.itemsPerBag || 'Δεν oρίστηκε'}</span></p></div>
+                    <div class="input-row"><label>Σακουλάκι:</label><p><span class="admin-info">${data.bags || 'Δεν oρίστηκε'}</span></p></div>
                 </div>
                 <div ${role === 'user' ? '' : 'style="display: none;"'}>
                     <button class="prep-material-btn" onclick="openMaterialPrep()">Φόρμα Προετοιμασίας Υλικού</button>

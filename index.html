@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <title>Σύνδεση - Plastigia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #FFFFFF; /* Λευκό φόντο */
+            color: #000000; /* Μαύρο κείμενο */
+        }
+        h1 {
+            color: #FF0000; /* Κόκκινο */
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #FF0000; /* Κόκκινο κουμπί */
+            color: #FFFFFF; /* Λευκό κείμενο */
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #CC0000; /* Σκουρότερο κόκκινο στο hover */
+        }
+        #message {
+            margin-top: 10px;
+            color: #FF0000; /* Κόκκινο για μηνύματα */
+        }
+    </style>
+</head>
+<body>
+    <div class="header" style="position: relative; padding: 10px;">
+        <img src="plastigia-logo.png" alt="Plastigia Logo" style="max-width: 200px;">
+        <button onclick="logout()" style="position: absolute; top: 10px; right: 10px; padding: 5px 10px;">Αποσύνδεση</button>
+    </div>
+    <h1>Σύνδεση - Plastigia</h1>
+    <input type="text" id="username" placeholder="Όνομα χρήστη">
+    <input type="password" id="password" placeholder="Κωδικός">
+    <button onclick="login()">Σύνδεση</button>
+    <div id="message"></div>
+    <script>
+        function login() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            let message = document.getElementById("message");
+
+            // Προκαθορισμένοι χρήστες
+            const users = {
+                admin1: { password: "admin123", role: "admin" },
+                user1: { password: "user123", role: "user" }
+            };
+
+            if (users[username] && users[username].password === password) {
+                message.innerHTML = "Επιτυχής σύνδεση!";
+                // Αποθήκευση ρόλου στη session
+                sessionStorage.setItem('role', users[username].role);
+                sessionStorage.setItem('username', username);
+                // Κατεύθυνση στο welcome page
+                setTimeout(() => {
+                    window.location.href = "welcome.html";
+                }, 1000);
+            } else {
+                message.innerHTML = "Λάθος όνομα χρήστη ή κωδικός!";
+            }
+        }
+
+        function logout() {
+            sessionStorage.clear();
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

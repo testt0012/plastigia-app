@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <title>Καλωσήρθες - Plastigia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF; /* Λευκό φόντο */
+            color: #000000; /* Μαύρο κείμενο */
+        }
+        .header {
+            position: relative;
+            background-color: #FF0000; /* Κόκκινο φόντο header */
+            padding: 10px;
+            color: #FFFFFF; /* Λευκό κείμενο στο header */
+        }
+        .logo {
+            max-width: 200px; /* Ρύθμιση μεγέθους λογοτύπου */
+            margin: 10px auto;
+        }
+        .logout-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background-color: #FF0000;
+            color: #FFFFFF;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .logout-btn:hover {
+            background-color: #CC0000;
+        }
+        .welcome-message {
+            margin: 40px 0;
+            font-size: 24px;
+        }
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 κουτάκια ανά σειρά */
+            gap: 10px; /* Απόσταση μεταξύ κουτιών */
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .machine-button {
+            padding: 15px;
+            background-size: cover; /* Φωτογραφία καλύπτει το button */
+            background-position: center;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            color: #FFFFFF; /* Λευκό κείμενο */
+            text-align: center;
+            border-radius: 5px; /* Στρογγυλεμένες γωνίες */
+            height: 100px; /* Ύψος button για καλύτερη εμφάνιση */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative; /* Για το background του κειμένου */
+        }
+        .machine-button .text-background {
+            background-color: rgba(0, 0, 0, 0.6); /* Ελαφρώς πιο σκούρο ημιδιαφανές μαύρο */
+            padding: 5px 10px;
+            border-radius: 3px;
+            text-shadow: 1px 1px 2px #000000; /* Λεπτή σκιά για επιπλέον αντίθεση */
+        }
+        .machine-button:hover {
+            opacity: 0.9; /* Ελαφριά μείωση διαφάνειας στο hover */
+        }
+        /* Καθορισμός φωτογραφιών ανά μηχανή */
+        #victor120 { background-image: url('victor.png'); }
+        #victor90 { background-image: url('victor.png'); }
+        #victor180 { background-image: url('victor.png'); }
+        #haitian90 { background-image: url('haitian.png'); }
+        #haitian60 { background-image: url('haitian.png'); }
+        #haitian120 { background-image: url('haitian.png'); }
+        #borsche60 { background-image: url('borsche.jpg'); }
+        #kraussmaffei { background-image: url('krauss.jpg'); }
+        #haitian200 { background-image: url('haitian.png'); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="plastigia-logo.png" alt="Plastigia Logo" class="logo">
+        <button class="logout-btn" onclick="logout()">Αποσύνδεση</button>
+    </div>
+    <div class="welcome-message">
+        <h1>Καλωσήρθες στην Plastigia!</h1>
+        <p>Είσαι συνδεδεμένος/η ως <span id="roleDisplay"></span>.</p>
+    </div>
+    <div class="button-grid">
+        <button id="victor120" class="machine-button" onclick="openMachineInfo('Victor 120')"><span class="text-background">Victor 120</span></button>
+        <button id="victor90" class="machine-button" onclick="openMachineInfo('Victor 90')"><span class="text-background">Victor 90</span></button>
+        <button id="haitian90" class="machine-button" onclick="openMachineInfo('Haitian 90')"><span class="text-background">Haitian 90</span></button>
+        <button id="haitian60" class="machine-button" onclick="openMachineInfo('Haitian 60')"><span class="text-background">Haitian 60</span></button>
+        <button id="borsche60" class="machine-button" onclick="openMachineInfo('Borsche 60')"><span class="text-background">Borsche 60</span></button>
+        <button id="haitian120" class="machine-button" onclick="openMachineInfo('Haitian 120')"><span class="text-background">Haitian 120</span></button>
+        <button id="kraussmaffei" class="machine-button" onclick="openMachineInfo('Krauss-Maffei')"><span class="text-background">Krauss-Maffei</span></button>
+        <button id="victor180" class="machine-button" onclick="openMachineInfo('Victor 180')"><span class="text-background">Victor 180</span></button>
+        <button id="haitian200" class="machine-button" onclick="openMachineInfo('Haitian 200')"><span class="text-background">Haitian 200</span></button>
+    </div>
+    <script>
+        // Έλεγχος ρόλου
+        const role = sessionStorage.getItem('role');
+        const username = sessionStorage.getItem('username');
+        if (!role || !username) {
+            alert('Πρέπει να συνδεθείτε!');
+            window.location.href = "index.html";
+        }
+        document.getElementById('roleDisplay').textContent = role === 'admin' ? 'Admin' : 'Υπάλληλος';
+
+        function openMachineInfo(machineName) {
+            window.location.href = `machine-info.html?name=${encodeURIComponent(machineName)}`;
+        }
+
+        function logout() {
+            sessionStorage.clear();
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

@@ -2,6 +2,7 @@
 <html lang="el">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
     <title>Φόρμα Προετοιμασίας Υλικού - Plastigia</title>
     <style>
         body {
@@ -9,88 +10,91 @@
             text-align: center;
             margin: 0;
             padding: 0;
-            background-color: #FFFFFF; /* Λευκό φόντο */
-            color: #000000; /* Μαύρο κείμενο */
+            background-color: #FFFFFF;
+            color: #000000;
         }
         .header {
             position: relative;
-            background-color: #FF0000; /* Κόκκινο φόντο header */
-            padding: 10px;
-            color: #FFFFFF; /* Λευκό κείμενο στο header */
+            background-color: #FF0000;
+            padding: 15px;
+            color: #FFFFFF;
         }
         .logo {
-            max-width: 200px; /* Ρύθμιση μεγέθους λογοτύπου */
-            margin: 10px auto;
+            max-width: 200px;
+            margin: 20px auto;
         }
         .logout-btn {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            padding: 5px 10px;
+            top: 15px;
+            right: 15px;
+            padding: 10px 20px;
             background-color: #FF0000;
             color: #FFFFFF;
             border: none;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 10px;
+            font-size: 18px;
         }
         .logout-btn:hover {
             background-color: #CC0000;
         }
         .back-btn {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            padding: 5px 10px;
+            top: 15px;
+            left: 15px;
+            padding: 10px 20px;
             background-color: #FF0000;
             color: #FFFFFF;
             border: none;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 10px;
+            font-size: 18px;
         }
         .back-btn:hover {
             background-color: #CC0000;
         }
         .container {
-            max-width: 600px;
+            max-width: 90%;
             margin: 20px auto;
             padding: 20px;
-            border: 1px solid #FF0000; /* Κόκκινο περίγραμμα */
-            border-radius: 5px;
+            border: 2px solid #FF0000;
+            border-radius: 15px;
         }
         .section {
             margin-bottom: 20px;
-            text-align: center; /* Στοιχίση στη μέση */
+            text-align: center;
         }
         h2 {
-            color: #FF0000; /* Κόκκινο για κεφαλίδες */
-            text-align: center;
+            color: #FF0000;
+            font-size: 24px;
+            margin-bottom: 15px;
         }
         .admin-info span {
             font-weight: bold;
-            color: #FF0000; /* Κόκκινο για τα προσυμπληρωμένα */
+            color: #FF0000;
+            font-size: 18px;
         }
         .input-row {
             display: flex;
             align-items: center;
-            justify-content: center; /* Στοιχίση στη μέση */
-            margin: 5px 0;
+            justify-content: center;
+            margin: 10px 0;
         }
         label {
             display: inline-block;
-            width: 40%; /* Πλάτος ετικέτας */
+            width: 40%;
             margin-right: 10px;
-            text-align: center; /* Στοιχίση στη μέση */
+            text-align: center;
             font-weight: bold;
+            font-size: 18px;
         }
         input {
-            width: 50%; /* Πλάτος input */
-            padding: 5px;
-            font-size: 14px;
-            border: 1px solid #FF0000;
-            border-radius: 3px;
-            display: inline-block;
-            vertical-align: middle;
-            text-align: center; /* Στοιχίση στη μέση */
+            width: 50%;
+            padding: 12px;
+            font-size: 18px;
+            border: 2px solid #FF0000;
+            border-radius: 10px;
+            text-align: center;
         }
         input[readonly] {
             background-color: #f0f0f0;
@@ -98,28 +102,29 @@
         }
         .table-container {
             margin-top: 20px;
-            text-align: center; /* Στοιχίση στη μέση */
+            text-align: center;
         }
         table {
-            width: 80%; /* Πλάτος πίνακα για καλύτερη εμφάνιση στη μέση */
-            margin: 0 auto; /* Κεντράρισμα πίνακα */
+            width: 80%;
+            margin: 0 auto;
             border-collapse: collapse;
         }
         table, th, td {
-            border: 1px solid #FF0000;
+            border: 2px solid #FF0000;
         }
         th, td {
-            padding: 10px;
-            text-align: center; /* Στοιχίση στη μέση */
+            padding: 12px;
+            text-align: center;
         }
-        th:nth-child(3), td:nth-child(3) { /* Μείωση πλάτους τρίτης στήλης */
-            width: 30px; /* Πλάτος για να χωράει μόνο η εικόνα */
+        th:nth-child(3), td:nth-child(3) {
+            width: 30px;
         }
         .remaining {
             margin-top: 10px;
             font-weight: bold;
             color: #FF0000;
-            text-align: center; /* Στοιχίση στη μέση */
+            font-size: 18px;
+            text-align: center;
         }
         .delete-btn {
             width: 20px;
@@ -132,6 +137,31 @@
         }
         .delete-btn:hover {
             opacity: 0.7;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+            label {
+                font-size: 16px;
+            }
+            input {
+                width: 60%;
+                padding: 10px;
+                font-size: 16px;
+            }
+            .table-container table {
+                width: 90%;
+            }
+            th, td {
+                padding: 10px;
+            }
+            .remaining {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -156,7 +186,7 @@
                     <tr>
                         <th>Κιλά Υλικού</th>
                         <th>Ώρα</th>
-                        <th></th> <!-- Κενή κεφαλίδα για τη στήλη διαγραφής -->
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody id="prepTableBody"></tbody>

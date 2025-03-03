@@ -15,43 +15,58 @@
         }
         .header {
             position: relative;
-            background-color: #FF0000;
-            padding: 20px;
+            background-color: #ed1c24; /* Νέο κόκκινο χρώμα */
+            padding: 10px; /* Μειωμένο padding για μικρότερο πλάτος */
             color: #FFFFFF;
+            width: 90%; /* Περιορισμός πλάτους */
+            margin: 0 auto; /* Κεντράρισμα */
+            min-height: 40px; /* Ελάχιστο ύψος για τη μπάρα */
         }
         .logo {
-            max-width: 250px;
-            margin: 20px auto;
+            max-width: 300px; /* Αυξημένο μέγεθος λογοτύπου */
+            margin: 10px auto; /* Περιθώριο για κεντράρισμα */
         }
         .menu-btn {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 15px 30px;
-            background-color: #FF0000;
+            top: 0;
+            right: 0;
+            padding: 0; /* Καθαρό padding για πλήρες ύψος */
+            background-color: #ed1c24; /* Νέο κόκκινο χρώμα */
             color: #FFFFFF;
             border: none;
             cursor: pointer;
-            border-radius: 15px;
-            font-size: 22px;
+            border-radius: 0 10px 10px 0; /* Ακριαία στρογγυλά μόνο στα δεξιά */
+            font-size: 20px;
+            width: 50px; /* Σταθερό πλάτος για τη γωνία */
+            height: 100%; /* Πλήρες ύψος της μπάρας */
+            box-sizing: border-box; /* Περιλαμβάνει padding στο ύψος/πλάτος */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .menu-btn:hover {
-            background-color: #CC0000;
+            background-color: #c91820; /* Σκιά χρώματος για hover */
         }
         .back-btn {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            padding: 15px 30px;
-            background-color: #FF0000;
+            top: 0;
+            left: 0;
+            padding: 0; /* Καθαρό padding για πλήρες ύψος */
+            background-color: #ed1c24; /* Νέο κόκκινο χρώμα */
             color: #FFFFFF;
             border: none;
             cursor: pointer;
-            border-radius: 15px;
-            font-size: 22px;
+            border-radius: 10px 0 0 10px; /* Ακριαία στρογγυλά μόνο στα αριστερά */
+            font-size: 20px;
+            width: 50px; /* Σταθερό πλάτος για τη γωνία */
+            height: 100%; /* Πλήρες ύψος της μπάρας */
+            box-sizing: border-box; /* Περιλαμβάνει padding στο ύψος/πλάτος */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .back-btn:hover {
-            background-color: #CC0000;
+            background-color: #c91820; /* Σκιά χρώματος για hover */
         }
         .sidebar {
             height: 100%;
@@ -59,7 +74,7 @@
             position: fixed;
             top: 0;
             right: 0;
-            background-color: #FF0000;
+            background-color: #ed1c24; /* Νέο κόκκινο χρώμα */
             overflow-x: hidden;
             transition: 0.5s;
             padding-top: 60px;
@@ -74,7 +89,7 @@
             transition: 0.3s;
         }
         .sidebar a:hover {
-            background-color: #CC0000;
+            background-color: #c91820; /* Σκιά χρώματος για hover */
         }
         .sidebar .close-btn {
             position: absolute;
@@ -91,7 +106,7 @@
             max-width: 90%;
             margin: 20px auto;
             padding: 20px;
-            border: 2px solid #FF0000;
+            border: 2px solid #ed1c24; /* Νέο κόκκινο χρώμα */
             border-radius: 15px;
         }
         .section {
@@ -99,13 +114,13 @@
             text-align: center;
         }
         h2 {
-            color: #FF0000;
+            color: #ed1c24; /* Νέο κόκκινο χρώμα */
             font-size: 24px;
             margin-bottom: 15px;
         }
         .admin-info span {
             font-weight: bold;
-            color: #FF0000;
+            color: #ed1c24; /* Νέο κόκκινο χρώμα */
             font-size: 18px;
         }
         .input-row {
@@ -126,7 +141,7 @@
             width: 50%;
             padding: 12px;
             font-size: 18px;
-            border: 2px solid #FF0000;
+            border: 2px solid #ed1c24; /* Νέο κόκκινο χρώμα */
             border-radius: 10px;
             text-align: center;
         }
@@ -144,7 +159,7 @@
             border-collapse: collapse;
         }
         table, th, td {
-            border: 2px solid #FF0000;
+            border: 2px solid #ed1c24; /* Νέο κόκκινο χρώμα */
         }
         th, td {
             padding: 12px;
@@ -156,7 +171,7 @@
         .remaining {
             margin-top: 10px;
             font-weight: bold;
-            color: #FF0000;
+            color: #ed1c24; /* Νέο κόκκινο χρώμα */
             font-size: 18px;
             text-align: center;
         }
@@ -176,8 +191,18 @@
             .container {
                 padding: 15px;
             }
-            h2 {
-                font-size: 20px;
+            .header {
+                padding: 5px; /* Περαιτέρω μείωση σε κινητό */
+                width: 95%; /* Λίγο μεγαλύτερο πλάτος σε κινητό */
+                min-height: 35px; /* Προσαρμογή ελάχιστου ύψους σε κινητό */
+            }
+            .logo {
+                max-width: 250px; /* Μικρότερο μέγεθος σε κινητό */
+            }
+            .menu-btn, .back-btn {
+                padding: 0;
+                font-size: 18px;
+                width: 45px; /* Λίγο μικρότερο πλάτος σε κινητό */
             }
             label {
                 font-size: 16px;
@@ -195,10 +220,6 @@
             }
             .remaining {
                 font-size: 16px;
-            }
-            .menu-btn, .back-btn {
-                padding: 12px 25px;
-                font-size: 18px;
             }
         }
     </style>
